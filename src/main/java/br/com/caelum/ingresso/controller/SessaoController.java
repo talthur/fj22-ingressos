@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
 
-@Controller
+@Controller("/admin/sessao")
 public class SessaoController {
 	
 	@Autowired
