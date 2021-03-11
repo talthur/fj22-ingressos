@@ -28,7 +28,9 @@ public class SalaController {
 
     @Autowired
     private SalaDao salaDao;
-    
+
+    	
+    @Autowired
     private SessaoDao sessaoDao;
 
 
@@ -73,6 +75,7 @@ public class SalaController {
         Sala sala = salaDao.findOne(id);
 
         ModelAndView view = new ModelAndView("sessao/lista");
+        view.addObject("sala", sala); 
         view.addObject("sessoes", sessaoDao.buscaSessoesDaSala(sala));
 
         return view;
