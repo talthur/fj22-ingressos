@@ -2,12 +2,25 @@ package br.com.caelum.ingresso.model;
 
 import java.time.LocalTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+
+@Entity
 public class Sessao {
+	
+	public Sessao() {
+		
+	}
 	
 	public Integer getId() {
 		return id;
 	}
 
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -36,9 +49,16 @@ public class Sessao {
 		this.filme = filme;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	
 	private LocalTime horario;
+	
+	@ManyToOne
 	private Sala sala;
+	
 	private Filme filme;
 	
 	public Sessao(LocalTime horario, Filme filme, Sala sala) {
