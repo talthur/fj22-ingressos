@@ -1,4 +1,4 @@
-package br.com.caelum.ingresso.converter.configuracao;
+package br.com.caelum.ingresso.configuracao;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
