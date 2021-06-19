@@ -32,12 +32,16 @@ public class ConfirmacaoLoginForm {
 		String email = token.getEmail();
 
 		Usuario usuario = dao.findByEmail(email).orElse(novoUsuario(email, encriptedPassword));
+		
+		usuario.setPassword(encriptedPassword);
+		
+		return usuario;
 
 	}
 
 	private Usuario novoUsuario(String email, String password) {
 		Set<Permissao> permissoes = new HashSet<>();
-		permissoes.add(Permissao.COMPRADOR);
+		permissoes.add(new Permissao("COMPRADOR"));
 		return new Usuario(email, password, permissoes);
 	}
 
